@@ -154,8 +154,7 @@ namespace EndlessRunner
 				animatorInfo = ani.GetCurrentAnimatorStateInfo(0);
 				if ((animatorInfo.normalizedTime >= 0.89f) && (animatorInfo.IsName("Jump")))
 				{
-					ani.SetBool(s_JumpingHash, false);
-					m_jump = false;
+				
 		
 				}
 				
@@ -209,8 +208,8 @@ namespace EndlessRunner
 
 				return;
 			}
-			this.GetComponent<Rigidbody>().velocity = new Vector3(this.GetComponent<Rigidbody>().velocity.x, 200 *Time.deltaTime, this.GetComponent<Rigidbody>().velocity.z);
-			//this.GetComponent<Rigidbody>().AddForce(new Vector3(0, 350f, 100), ForceMode.Acceleration);
+			this.GetComponent<Rigidbody>().velocity = new Vector3(this.GetComponent<Rigidbody>().velocity.x,5, this.GetComponent<Rigidbody>().velocity.z);
+			this.GetComponent<Rigidbody>().AddForce(Vector3.up * 50, ForceMode.Acceleration);
 			//ani.SetFloat(s_JumpingSpeedHash, 1f);
 			ani.SetBool(s_JumpingHash, true);
 
@@ -268,6 +267,16 @@ namespace EndlessRunner
 				this.GetComponent<BoxCollider>().center = new Vector3(0, 0.68f, 0);
 				this.GetComponent<BoxCollider>().size = new Vector3(0.52f, 1.26f, 0.49f);
 			}
+		}
+
+		void OnCollisionEnter(Collision collision)
+		{
+			if (collision.collider.tag=="Ground") {
+				ani.SetBool(s_JumpingHash, false);
+				m_jump = false;
+			}
+		
+
 		}
 	}
 	
