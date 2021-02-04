@@ -1,0 +1,13 @@
+#	音乐配置表		
+#	Id		AssetName
+#	int		string
+#	音乐编号	策划备注	资源名称
+	1	死亡循环	DeathLoop
+	2	菜单主题	MenuTheme
+	3	主场景Track	STEMSMainTrackMono
+	4	主场景 斯皮德邦戈	STEMSSpeed1BongosMono
+	5	主场景 速度伤害	STEMSSpeed1HatsMono
+	6	主场景 速度2	STEMSSpeed2Choir
+	7	主场景 速度2Mono	STEMSSpeed2ChoirMono
+	8	主场景速度2choir	STEMSSpeed2ChoirMono
+	9	主场景速度2Synth	STEMSSpeed4SynthMono

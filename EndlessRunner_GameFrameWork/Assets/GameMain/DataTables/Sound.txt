@@ -1,0 +1,28 @@
+#	声音配置表							
+#	Id		ResourceName	Priority	Loop	Volume	SpatialBlend	MaxDistance
+#	int		string	int	bool	float	float	float
+#	声音编号	策划备注	资源名称	优先级（默认0，128最高，-128最低）	是否循环	音量（0~1）	声音空间混合量（0为2D，1为3D，中间值混合效果）	声音最大距离
+	1	猫死亡	CatDeath	0	FALSE	1	0	100
+	2	猫受伤	CatInjured	0	FALSE	1	0	100
+	3	猫跳	CatJump	0	FALSE	1	0	100
+	4	狗叫1	DogGrowlLoop1	0	TRUE	1	0	100
+	5	狗叫2	DogGrowlLoop2	0	TRUE	1	0	100
+	6	狗受伤	DogHit	0	FALSE	1	0	100
+	7	浣熊死亡	RaccoonDead	0	FALSE	1	0	100
+	8	浣熊受伤	RaccoonHurt	0	FALSE	1	0	100
+	9	浣熊跳	RaccoonJump	0	FALSE	1	0	100
+	10	老鼠受伤	RatHit	0	FALSE	1	0	100
+	11	老鼠循环1	RatLoop1	0	TRUE	1	0	100
+	12	老师循环2	RatLoop2	0	TRUE	1	0	100
+	13	开始倒计时	4321	0	FALSE	1	0	100
+	14	死亡	Death	0	FALSE	1	0	100
+	15	鱼币收集	FishboneCollection	0	FALSE	1	0	100
+	16	无敌	Invincible	0	FALSE	1	0	100
+	17	磁铁	Magnet	0	FALSE	1	0	100
+	18	通电	PowerUp	0	FALSE	1	0	100
+	19	保险费	PremiumCurrency	0	FALSE	1	0	100
+	20	幻灯片	Slide	0	FALSE	1	0	100
+	21	交通	TrafficCone	0	FALSE	1	0	100
+	22	垃圾桶	TrashCan	0	FALSE	1	0	100
+	23	轮子垃圾桶	WheelieBin	0	FALSE	1	0	100
+	24	木制的	WoodenBarrier	0	FALSE	1	0	100
