@@ -271,12 +271,19 @@ namespace EndlessRunner
 
 		void OnCollisionEnter(Collision collision)
 		{
-			if (collision.collider.tag=="Ground") {
+			if (collision.collider.tag == "Ground")
+			{
 				ani.SetBool(s_JumpingHash, false);
 				m_jump = false;
 			}
 		
+		}
 
+		void OnTriggerEnter(Collision collision) {
+			if (collision.collider.tag == "Obstacle")//≈ˆµΩ’œ∞≠ŒÔ ‹…À
+			{
+				ani.SetTrigger("Hit");
+			}
 		}
 	}
 	
