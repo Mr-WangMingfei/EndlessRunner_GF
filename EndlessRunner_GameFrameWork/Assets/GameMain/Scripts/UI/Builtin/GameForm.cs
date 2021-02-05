@@ -32,19 +32,45 @@ namespace EndlessRunner
 		[SerializeField]
 		private Text PickupCount;
 
-
+		//生命值Image
+		public List<GameObject> LiftCount;
 
 		protected override void OnInit(object userData)
 		{
 			base.OnInit(userData);
-			//监听Charactor
-			GameEntry.Event.Subscribe(CharacterEventArgs.EventId, TrackEvent);
+
+
+			//监听GameForm相关事件
+			GameEntry.Event.Subscribe(GameFormEventArgs.EventId, GameFormEvent);
 		}
 
-		private void TrackEvent(object sender, GameEventArgs e)
+	    /// <summary>
+		/// 界面相关的事件监听
+		/// </summary>
+		/// <param name="sender">事件数据</param>
+		/// <param name="e"></param>
+		private void GameFormEvent(object sender, GameEventArgs e)
 		{
-			m_Character = (Transform)sender;
+			GameFormData data=(GameFormData)sender;
+			switch (data.gameFormEnum) {
+
+				case GameFormEnum.Init:
+					m_Character = (Transform)data.Data;
+					break;
+				case GameFormEnum.BloodLoss:
+					LiftCount[int.Parse(data.Data.ToString())].SetActive(false);
+					break;
+				case GameFormEnum.Coin:
+					break;
+				case GameFormEnum.FishBone:
+					break;
+			}
+
+	
 		}
+
+
+
 
 		protected override void OnOpen(object userData)
 		{

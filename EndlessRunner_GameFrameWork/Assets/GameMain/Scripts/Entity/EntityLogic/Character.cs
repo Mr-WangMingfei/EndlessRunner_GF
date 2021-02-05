@@ -30,6 +30,7 @@ namespace EndlessRunner
 		public bool m_jump=false;
 		public bool m_Slide = false;
 		public bool isMoving = false;
+		public bool iSDead=false;
 
 		float ratio = 0;
 		int Currentdirection = 0;
@@ -41,10 +42,13 @@ namespace EndlessRunner
 		/// </summary>
 		string CurrentGroundName = "";
 
+		//游戏界面数据
+		GameFormData _GameFormData;
+		int RemainingLift = 2;
 		protected override void OnInit(object userData)
 		{
 			base.OnInit(userData);
-
+			_GameFormData = new GameFormData();
 		}
 
 		protected override void OnShow(object userData)
@@ -55,8 +59,11 @@ namespace EndlessRunner
 			ani = CachedTransform.GetComponent<Animator>();
 	
 			Camera.main.GetComponent<CameraFollow>().target= CachedTransform;
-			//
-			GameEntry.Event.Fire(CachedTransform, ReferencePool.Acquire<CharacterEventArgs>());
+
+			_GameFormData.gameFormEnum = GameFormEnum.Init;
+			_GameFormData.Data = CachedTransform;
+			GameEntry.Event.Fire(_GameFormData, ReferencePool.Acquire<GameFormEventArgs>());
+
 			//监听倒计时事件
 			GameEntry.Event.Subscribe(CountDownEventArgs.EventId, ConutDonwFinished);
 	
@@ -72,6 +79,9 @@ namespace EndlessRunner
 		protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
 		{
 			base.OnUpdate(elapseSeconds, realElapseSeconds);
+
+			if (iSDead) return;
+
 #if UNITY_EDITOR || UNITY_STANDALONE
 			// Use key input in editor or standalone
 			if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -176,7 +186,21 @@ namespace EndlessRunner
 		{
 			if (other.tag == "Obstacle")
 			{
+				ani.SetTrigger("Hit");
 				//碰到障碍物受伤掉血
+				_GameFormData.gameFormEnum = GameFormEnum.BloodLoss;
+				_GameFormData.Data = RemainingLift;
+				GameEntry.Event.Fire(_GameFormData, ReferencePool.Acquire<GameFormEventArgs>());
+				if (RemainingLift <= 0)
+				{
+					iSDead = true;
+					//执行死亡动画
+					ani.SetBool(s_DeadHash, true);
+					ani.SetFloat("RandomDeath", 0);
+				}
+			
+				RemainingLift--;
+
 			}
 		
 		}
@@ -193,11 +217,9 @@ namespace EndlessRunner
 		}
 
 		void StopMoving()
-		{
-		
+		{		
 			if (this.GetComponent<Animator>())
 			{
-
 				ani.SetBool(s_MovingHash, false);
 			}
 		}
@@ -278,13 +300,9 @@ namespace EndlessRunner
 			}
 		
 		}
+	
 
-		void OnTriggerEnter(Collision collision) {
-			if (collision.collider.tag == "Obstacle")//碰到障碍物受伤
-			{
-				ani.SetTrigger("Hit");
-			}
-		}
+	
 	}
 	
 }

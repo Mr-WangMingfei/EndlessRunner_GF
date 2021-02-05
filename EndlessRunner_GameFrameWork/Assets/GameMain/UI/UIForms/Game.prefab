@@ -875,6 +875,10 @@ MonoBehaviour:
   Distance: {fileID: 114252409322061260}
   PremiumCollectibleCount: {fileID: 114285654849695778}
   PickupCount: {fileID: 114846814642623220}
+  LiftCount:
+  - {fileID: 1695626107303198}
+  - {fileID: 1079319457374132}
+  - {fileID: 1349619209187900}
 --- !u!114 &114332317706565516
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -143,8 +143,8 @@ namespace EndlessRunner
 					}
 					else
 					{
-						toUse = Coin.coinPool.Get(pos, rot);
-						toUse.transform.SetParent(segment.collectibleTransform, true);
+
+
 					}
 
 

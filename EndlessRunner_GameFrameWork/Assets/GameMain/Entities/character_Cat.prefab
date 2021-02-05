@@ -10,7 +10,7 @@ GameObject:
   - component: {fileID: 465740}
   - component: {fileID: 9501716}
   - component: {fileID: 54118641254566988}
-  - component: {fileID: 136355988124501414}
+  - component: {fileID: 65581347619000888}
   m_Layer: 0
   m_Name: character_Cat
   m_TagString: Untagged
@@ -73,7 +73,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012985580144}
   - component: {fileID: 137000013099618884}
-  - component: {fileID: 114000012881478878}
   m_Layer: 0
   m_Name: HatandTie
   m_TagString: Untagged
@@ -90,7 +89,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4000011953386096}
   - component: {fileID: 137000013523790414}
-  - component: {fileID: 114000010124067434}
   m_Layer: 0
   m_Name: ConstructionGearMesh
   m_TagString: Untagged
@@ -123,7 +121,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4000011250848998}
   - component: {fileID: 137000012339440728}
-  - component: {fileID: 114000013004132168}
   m_Layer: 0
   m_Name: PartyHatMesh
   m_TagString: Untagged
@@ -198,53 +195,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114000010124067434
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011154918828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d3602e240a7c92419a5f52841329955, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accessoryName: Safety
-  cost: 1500
-  premiumCost: 5
-  accessoryIcon: {fileID: 21300026, guid: e1a536f74c7ef384a8d7132148ace0c8, type: 3}
---- !u!114 &114000012881478878
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010983816196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d3602e240a7c92419a5f52841329955, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accessoryName: Smart
-  cost: 2000
-  premiumCost: 10
-  accessoryIcon: {fileID: 21300012, guid: e1a536f74c7ef384a8d7132148ace0c8, type: 3}
---- !u!114 &114000013004132168
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012411482616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d3602e240a7c92419a5f52841329955, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accessoryName: Party Hat
-  cost: 1500
-  premiumCost: 5
-  accessoryIcon: {fileID: 21300014, guid: e1a536f74c7ef384a8d7132148ace0c8, type: 3}
---- !u!136 &136355988124501414
-CapsuleCollider:
+--- !u!65 &65581347619000888
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -252,10 +204,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.25
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.63, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.52, y: 1.26, z: 0.49}
+  m_Center: {x: 0, y: 0.68, z: 0}
 --- !u!137 &137000010249369434
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
